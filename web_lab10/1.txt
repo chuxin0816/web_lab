@@ -1,0 +1,91 @@
+实验步骤
+Canvas 宽高预设：800px * 300px
+
+1. 初始化游戏
+完成 initGame() 方法，确保每次游戏开始或重新开始时，游戏状态正确初始化。
+重置游戏状态：
+将 status 设置为 "ready"。
+生成初始坑洞数据：
+调用 generateInitialPits() 方法，生成一组坑洞数据并存储到 pits 数组中。
+坑洞的位置从 x=310 开始，宽度在设定范围内随机生成（例如 30px 到 50px）。
+重置角色状态：
+垂直位置 y=250，表示角色在地面上。
+垂直速度 velocityY=0，角色停止运动。
+着地状态 onGround=true。
+调用 render() 方法：绘制初始游戏画面，包括背景、地面、坑洞和角色。
+2. 开始游戏
+完成 startGame() 方法，实现游戏从等待状态切换到运行状态。
+点击“开始游戏”按钮：
+调用 initGame() 方法重置游戏状态。
+隐藏“开始游戏”按钮。
+切换游戏状态：将 status 切换为 "running"。
+启动计时器：
+调用 startTimer() 方法，每秒更新一次计时器，显示在页面顶部。
+启动游戏主循环：
+调用 gameLoop() 方法，实现游戏的持续更新和渲染。
+3. 动态渲染游戏画面
+完成 render() 方法，分步骤绘制画布内容。
+清空画布：
+调用 ctx.clearRect() 清除整个画布内容，避免残留图像。
+绘制背景：
+使用 ctx.fillStyle = "lightblue" 设置背景颜色。
+调用 ctx.fillRect(0, 0, canvas.width, canvas.height) 填充整个画布。
+绘制地面：
+设置 ctx.fillStyle = "green"，表示地面颜色。
+绘制矩形（高度 30px，位置紧贴画布底部），从 y=270 开始。
+绘制坑洞：
+遍历 pits 数组，调用 ctx.fillRect(pit.x, 270, pit.width, 30) 绘制每个坑洞，颜色为黑色。
+绘制角色：
+基础要求：根据角色的 x、y、width、height 属性，绘制一个红色矩形。
+  ctx.fillStyle = "red";
+  ctx.fillRect(player.x, player.y, player.width, player.height);
+              
+进阶要求：通过模板中给定的四幅角色图片，使用 ctx.drawImage() 动态绘制角色。
+每隔固定帧数（例如 5 帧）切换一次图片，产生动画效果。
+角色图片索引通过循环递增。
+4. 实现角色跳跃
+完成 handleJump(event) 方法，响应玩家按键事件，控制角色跳跃。
+按键监听：检查 event.code 是否为 "Space"。
+角色跳跃逻辑：
+确保角色当前在地面上 (player.onGround=true) 且游戏状态为 "running"。
+设置垂直速度 velocityY 为跳跃力（例如 -15），使角色向上移动。
+将角色的着地状态 onGround 更新为 false。
+提示：跳跃后角色会在 updatePlayer() 方法中逐帧更新位置，最终落地。
+5. 地面和坑洞动态移动
+完成 updatePits() 方法，使地面和坑洞持续向左移动。
+坑洞移动：
+遍历 pits 数组，每个坑洞的 x 坐标减去固定的速度值（例如 3px），使其向左移动。
+移除超出画布的坑洞：
+如果某个坑洞的 x + width 小于 0，说明该坑洞已经超出画布范围。
+从 pits 数组中移除该坑洞，并调用 generateNewPit() 方法生成一个新的坑洞。
+新坑洞的 x 坐标应位于最后一个坑洞的右侧，确保适当的间距。
+6. 检查碰撞
+完成 checkCollision() 方法，判断角色是否与坑洞发生碰撞。
+遍历坑洞：
+判断角色的 x 和 y 坐标是否与坑洞的坐标范围重叠。
+碰撞条件：
+角色的右侧 x + width 超过坑洞的左侧。
+角色的左侧 x 小于坑洞的右侧 x + width。
+角色的底部 y + height 接触地面。
+返回结果：
+如果角色与任意坑洞重叠，返回 true，否则返回 false。
+7. 游戏结束处理
+完成 gameOver() 方法，处理游戏结束时的逻辑。
+切换游戏状态：
+将 status 设置为 "over"。
+调用 cancelAnimationFrame() 停止游戏主循环。
+停止计时器：
+调用 stopTimer() 停止坚持时间的计时器。
+弹窗提示：
+使用 alert() 提示玩家游戏结束，并显示坚持的时间。
+显示“开始游戏”按钮：
+将 startButton 的 display 样式设置为 "inline-block"。
+8. 保存最佳坚持时间到 localStorage 并显示
+功能目标：在游戏结束后，将坚持时间与历史最佳时间比较，并保存到 localStorage 中。
+实现步骤：
+在 gameOver() 方法中，检查当前的 timeCounter 值是否大于 bestTime。
+如果是，更新 bestTime 并调用 saveBestTime() 保存到 localStorage。
+页面加载时显示最佳时间：
+在 loadBestTime() 方法中，读取 localStorage 中的 bestTime 值。
+如果值存在，更新页面上的历史最佳时间显示。
+首屏刷新页面时需要直接调用此方法。

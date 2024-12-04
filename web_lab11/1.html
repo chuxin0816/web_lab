@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字排序</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 300px;
+        }
+
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            cursor: grab;
+        }
+
+        .dragging {
+            opacity: 0.5;
+        }
+
+        .hover {
+            border: 2px dashed #007BFF;
+        }
+
+        #reset-order {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #reset-order:hover {
+            background-color: #0056b3;
+        }
+
+        #order-display {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>数字排序</h1>
+
+        <ul id="sortable-list">
+            <li draggable="true" data-value="1">1</li>
+            <li draggable="true" data-value="2">2</li>
+            <li draggable="true" data-value="3">3</li>
+            <li draggable="true" data-value="4">4</li>
+        </ul>
+
+        <button id="reset-order">重置顺序</button>
+        <p id="order-display">当前顺序=1,2,3,4</p>
+    </div>
+
+    <script>
+        const list = document.getElementById('sortable-list');
+        const orderDisplay = document.getElementById('order-display');
+        const resetButton = document.getElementById('reset-order');
+        const originalOrder = [1, 2, 3, 4];
+        let draggingItem = null;
+
+        // 更新顺序显示
+        function updateOrderDisplay() {
+            const order = Array.from(list.children).map(function (item) {
+                return item.textContent;
+            }).join(',');
+            orderDisplay.textContent = '当前顺序=' + order;
+        }
+
+        // 重置列表顺序
+        function resetList() {
+            Array.from(originalOrder).forEach(function (value) {
+                const listItem = document.querySelector('li[data-value="' + value + '"]');
+                list.appendChild(listItem);
+            });
+            updateOrderDisplay();
+            console.log('列表已重置=' + originalOrder.join(','));
+        }
+
+        // 拖拽开始
+        list.addEventListener('dragstart', function (event) {
+            draggingItem = event.target;
+            setTimeout(function () {
+                draggingItem.classList.add('dragging');
+            }, 0);
+        });
+
+        // 拖拽结束
+        list.addEventListener('dragend', function () {
+            draggingItem.classList.remove('dragging');
+            draggingItem = null;
+            updateOrderDisplay();
+            console.log('列表已更新=' + Array.from(list.children).map(function (item) {
+                return item.textContent;
+            }).join(','));
+        });
+
+        // 拖拽经过
+        list.addEventListener('dragover', function (event) {
+            event.preventDefault();
+            const hoveredItem = event.target;
+            if (hoveredItem !== draggingItem && hoveredItem.tagName === 'LI') {
+                hoveredItem.classList.add('hover');
+            }
+        });
+
+        // 拖拽离开
+        list.addEventListener('dragleave', function (event) {
+            const hoveredItem = event.target;
+            if (hoveredItem.tagName === 'LI') {
+                hoveredItem.classList.remove('hover');
+            }
+        });
+
+        // 拖拽放置
+        list.addEventListener('drop', function (event) {
+            event.preventDefault();
+            const hoveredItem = event.target;
+            if (hoveredItem !== draggingItem && hoveredItem.tagName === 'LI') {
+                const draggingIndex = Array.from(list.children).indexOf(draggingItem);
+                const hoveredIndex = Array.from(list.children).indexOf(hoveredItem);
+
+                // 插入拖拽项
+                if (draggingIndex < hoveredIndex) {
+                    list.insertBefore(draggingItem, hoveredItem.nextSibling);
+                } else {
+                    list.insertBefore(draggingItem, hoveredItem);
+                }
+                hoveredItem.classList.remove('hover');
+            }
+        });
+
+        // 重置顺序按钮点击事件
+        resetButton.addEventListener('click', resetList);
+
+        // 初始化
+        updateOrderDisplay();
+    </script>
+</body>
+
+</html>

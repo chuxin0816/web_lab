@@ -1,0 +1,13 @@
+实验步骤
+设置网站图标：http://172.31.233.204/resource/img/exp9/favicon.ico
+观察截图，匹配并正确使用<svg>元素。（不使用img标签并通过src关联。）
+访问对应的元素，打开控制台可以复制对应的<svg>。
+通过fill设置<svg>元素的颜色统一为：#75B9EB。宽高为2rem。当鼠标悬浮到.nav-item时，内部的<svg>颜色fill为 #00ff6a。
+设置轮播图背景
+背景图片大小设置为覆盖（cover）元素。
+背景位置居中。
+背景不重复。
+背景图通过渐变颜色linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3))，与背景图片url(...)进行叠加。
+叠加方式可在此学习：MDN: background-image
+
+(可选)前往iconfont https://www.iconfont.cn/，学习如何引入图标资源，完善左侧侧边栏。

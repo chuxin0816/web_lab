@@ -1,0 +1,13 @@
+编写偶数判断和求平方函数
+在给定的<script>标签内完成以下JavaScript代码：
+编写一个名为isEven的函数，接受一个数字参数，返回该数字是否为偶数。
+编写一个名为square的函数，接受一个数字参数，返回该数字的平方。
+实现偶数平方的过滤和求和
+使用数组方法生成1到10的数字数组。
+使用filter方法调用isEven函数过滤出偶数项，再使用map方法调用square函数对偶数项进行平方操作。
+最后，使用reduce方法计算所有偶数平方的总和。
+输出结果
+将偶数的平方值数组和总和通过console.log输出到控制台，格式要求如下：
+console.log(evenSquares); 输出偶数的平方值数组。
+console.log("Total even squares sum:", totalSum); 输出总和，其中totalSum是计算后的结果。
+注意：需要使用var定义全局变量numbers、evenSquares、totalSum，使用function定义函数。

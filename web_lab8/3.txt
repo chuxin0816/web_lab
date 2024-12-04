@@ -1,0 +1,37 @@
+个人信息
+个人信息卡片显示控制
+当鼠标悬停在 .my-info 菜单项上时，.personal-card 通过 display: block 显示。
+个人信息卡片布局
+.personal-card 具有以下样式属性：
+位置：使用 position: absolute 定位在导航栏下方，顶部偏移量为 50px。
+宽度为 200px。
+内边距设置为 15px。
+背景色为白色，字体颜色为深灰色 #333，字体大小为 14px。
+圆角边框半径为 5px。
+阴影效果
+.personal-card 具有 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)，用于创建浮动阴影效果。
+文本样式
+每段文本使用 <p> 标签，顶部和底部外边距为 10px，用于区分各行信息的视觉间隔。
+<strong> 标签用于高亮显示“姓名”、“学号”、“邮箱”等字段标签，保证其视觉效果突出于一般文本。
+轮播图卡片
+轮播图容器结构
+.carousel-container 是轮播图的主容器，设置为700px，并居中显示。
+.carousel 容器内部包含 .carousel-track，用于实现滑动效果。
+轮播图项目布局与样式
+.carousel 样式包括：
+固定宽度 100%，高度 400px。
+背景色为白色，添加圆角 border-radius: 5px。
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)，创建轻微浮动效果。
+轮播卡片动画
+.carousel-track 使用 @keyframes 动画，实现每 9 秒滚动一次的效果，名称为slide：
+0%：卡片保持原位；
+33%：卡片滑动 -100%；
+66%：卡片滑动 -200%；
+100%：恢复初始位置。
+轮播项目卡片样式
+.carousel-item 样式包括：
+每个卡片min-width宽度 100%，在容器内居中对齐，使用flex布局，且align-items和justify-content都居中。
+文本颜色 #333，并且 .carousel-item h3 使用 18px 字体大小。
+文本样式
+.carousel-item h3 和 <p> 分别展示标题和描述。
+标题颜色为深灰色 #333，内容颜色为灰色 #666，字体大小为 14px。

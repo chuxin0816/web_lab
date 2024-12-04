@@ -1,0 +1,12 @@
+变量定义和循环语句
+在给定的<script>标签内完成以下JavaScript代码：
+使用var定义一个名为numbers的空数组，用于存储结果。
+使用for循环生成从1到10的数字，将每个数字的平方值添加到numbers数组中。
+编写函数计算数组总和
+编写一个名为calculateSum的函数，该函数接受一个数组参数，返回数组中所有数字的总和。
+在循环完成后，调用该函数并输出numbers数组的总和。
+打印输出
+将numbers数组和计算出的总和通过console.log输出到控制台，格式要求如下：
+console.log(numbers); 输出整个数组。
+console.log("Total sum:", totalSum); 输出总和，其中totalSum是调用calculateSum后的返回值。
+注意：需要使用var定义全局变量numbers，使用function定义函数。

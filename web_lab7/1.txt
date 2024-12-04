@@ -1,0 +1,62 @@
+顶部导航栏
+固定定位及样式：
+`.site-header` 使用固定定位 `position: fixed`，设置 `top: 0`，`width: 100%`，高度和行高均为 `80px`。
+背景色为浅蓝色 `#2196F3`，`z-index: 1000`，防止遮挡。
+Logo样式：
+`.logo` 文本颜色为白色 `#FFFFFF`，左浮动。
+导航菜单布局：
+`.nav-list` 为 `.site-header` 内无序列表，使用弹性布局（`display: flex`），水平方向右对齐 (`justify-content: flex-end`)，垂直方向居中对齐。
+导航链接样式：
+`.nav-item a` 设置白色文本，去除下划线，内边距 `上下 5px，左右 15px`，圆角边框 `3px`。
+鼠标悬停时背景色过渡 `0.3秒`，背景颜色变化为 `#1976D2`。
+主内容区与页面底部
+HTML结构：
+`.main-container` 包含 `
+`（侧边栏 `.side-menu`），`
+`（主内容 `.main-content`），工具栏 `.toolkit`。
+`.side-menu` 内部为 `.side-menu-list` 列表项 `.side-menu-item`，每项包含指向页面的链接 ``。
+`.main-content` 包含主要学习模块内容 `
+`。
+`.site-footer` 在 `.main-container` 之后，放置在页面底部。
+主容器布局与响应式设计：
+`.main-container` 使用弹性盒子布局水平排列侧边栏和主内容，顶部外边距 `80px`。
+在宽度小于 `768px` 时，通过媒体查询将 `.side-menu` 与 `.main-content` 垂直排列，`.side-menu` 宽度 `100%`。
+侧边栏样式：
+`.side-menu` 固定宽度 `200px`，高度为 `calc(100vh - 80px - 60px)`，内边距 `10px`，背景色为浅灰 `#f2f2f2`。
+使用粘性定位 `position: sticky`，顶部 `80px`，确保侧边栏在页面滚动时保持相对位置。
+主内容宽度：
+`.main-content` 设置 `flex: 1`，占据 `.main-container` 剩余空间。
+页面底部样式：
+`.site-footer` 背景色为浅蓝色 `#2196F3`，文本居中对齐，文字颜色为白色，上下内边距 `20px`。
+Details
+侧边栏
+HTML结构：
+侧边栏 `.side-menu` 由 `.side-menu-list` 组成，每个 `.side-menu-item` 包含一个链接 ``。
+第一个菜单项需有 `active` 类，用于高亮当前选中模块。
+侧边栏样式：
+链接文本左对齐，移除下划线，字体颜色为深灰 `#333`。
+鼠标悬停时为激活菜单项添加背景色 `#c6bbbb`。
+学习模块卡片
+HTML结构：
+每个模块卡片 <div class="module-item"> 包含一个 .module-info 子容器，展示模块标题、描述及操作按钮。
+模块信息容器：
+.module-info 内含 <h3 class="module-title">（模块标题），<p class="module-description">（模块描述）及操作按钮 <button class="module-btn">。
+模块卡片布局：
+.module-items 使用弹性布局 display: flex，设置 gap: 10px，内容灵活换行。
+屏幕宽度大于 768px 时，.module-item 最大宽度设为 30%，实现三列布局。
+模块卡片样式与悬停效果：
+.module-item 设置最小宽度 200px，并在悬停时增加阴影效果 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)，卡片上移 5px。
+.module-title 字体大小 18px，颜色为 #333。
+.module-description 颜色 #666。
+操作按钮样式：
+.module-btn 设为块级元素，宽度 100%，背景色为主题色 #2196F3，悬停时背景色为 #1976D2，指示可点击操作。
+学习工具栏
+工具栏定位：
+`.toolkit` 固定定位于右侧，底部偏移量为页面高度的 `50%`，通过 `transform` 垂直居中。
+工具栏布局与样式：
+`.toolkit-list` 设置上下内边距 `12px`，左右内边距 `8px`，使用纵向弹性布局，内容水平垂直居中对齐。
+工具栏项样式：
+`.toolkit-item a` 设置为块级元素，填满父容器，移除下划线。
+`.toolkit-item img` 宽度 `40px`，用于显示工具图标，不设置底部外边距。
+响应式侧边栏调整：
+`.side-menu` 在宽度小于 `768px` 时宽度为 `100%`，高度设为 `auto`，外边距下侧保留 `20px`，保持一行填满页面宽度。
