@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>商品清单生成器</title>
+    <style>
+      .low-price {
+        color: green;
+      }
+      .mid-price {
+        color: blue;
+      }
+      .high-price {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>商品清单</h1>
+    <ul id="product-list">
+      <!-- 商品列表将在JavaScript中生成 -->
+    </ul>
+    <p id="total-price">
+      <!-- 总价将在JavaScript中计算并显示 -->
+    </p>
+    <script>
+      // 定义商品清单数组（不改动）
+      let products = [
+        { name: "苹果", price: 30 },
+        { name: "香蕉", price: 20 },
+        { name: "葡萄", price: 60 },
+        { name: "西瓜", price: 110 },
+        { name: "菠萝", price: 80 },
+      ];
+
+      // 初始化总价
+      let totalPrice = 0;
+
+      // 获取商品列表的 <ul> 元素
+      const productList = document.getElementById("product-list");
+
+      // 遍历商品数组并生成列表项
+      products.forEach((product) => {
+        // 创建 <li> 元素
+        const listItem = document.createElement("li");
+
+        // 设置列表项的文本内容
+        listItem.textContent = `${product.name} - $${product.price}`;
+
+        // 根据价格区间设置不同的颜色
+        if (product.price < 50) {
+          listItem.classList.add("low-price");
+        } else if (product.price <= 100) {
+          listItem.classList.add("mid-price");
+        } else {
+          listItem.classList.add("high-price");
+        }
+
+        // 将列表项添加到商品列表中
+        productList.appendChild(listItem);
+
+        // 累加总价
+        totalPrice += product.price;
+      });
+
+      // 显示总价
+      const totalPriceElement = document.getElementById("total-price");
+      totalPriceElement.textContent = `总价: $${totalPrice}`;
+    </script>
+  </body>
+</html>

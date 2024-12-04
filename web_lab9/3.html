@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的学习图标优化</title>
+
+    <!-- 设置网站图标 -->
+    <link rel="icon" href="http://172.31.233.204/resource/img/exp9/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="common-style.css">
+    <style>
+        .carousel-item {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+            /* 背景位置、背景颜色、背景图片大小 */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 第1张、第2张、第3张 carousel-item背景图 */
+        /* 背景渐变叠加图片引用 */
+        .carousel-item:nth-child(1),
+        .carousel-item:nth-child(2),
+        .carousel-item:nth-child(3) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('http://172.31.233.204/resource/img/exp9/bg1.png');
+        }
+
+        .carousel-item h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .carousel-item p {
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* 设置svg样式 */
+        .nav-item svg {
+            fill: #75B9EB;
+            width: 2rem;
+            height: 2rem;
+            vertical-align: middle;
+        }
+
+        .nav-item:hover svg {
+            fill: #00ff6a;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo" id="realid">我的学习</div>
+        <nav class="fruit-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#">
+                        <!-- 插入主页 svg -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                            <!-- 主页图标路径 -->
+                            <path d="M32 12l22 22h-6v18h-12V38H28v14H16V34h-6z" />
+                        </svg>
+                        主页
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">
+                        <!-- 插入课程 svg -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                            <!-- 课程图标路径 -->
+                            <path d="M12 8h40v8H12zM12 24h40v8H12zM12 40h40v8H12z" />
+                        </svg>
+                        课程
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">
+                        <!-- 插入笔记 svg -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                            <!-- 笔记图标路径 -->
+                            <path d="M16 8h32v48H16zM24 16h16v4H24zM24 24h16v4H24zM24 32h16v4H24z" />
+                        </svg>
+                        笔记
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">
+                        <!-- 插入工具 svg -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                            <!-- 工具图标路径 -->
+                            <path d="M32 12l12 12-8 8-12-12zM20 36l8-8 12 12-8 8z" />
+                        </svg>
+                        工具
+                    </a>
+                </li>
+                <li class="nav-item my-info">
+                    <a href="#">
+                        <!-- 插入我的 svg -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                            <!-- 我的图标路径 -->
+                            <circle cx="32" cy="24" r="12" />
+                            <path d="M16 44c0-8.8 7.2-16 16-16s16 7.2 16 16v8H16v-8z" />
+                        </svg>
+                        我的
+                    </a>
+                    <div class="personal-card">
+                        <p><strong>姓名：</strong>张三</p>
+                        <p><strong>学号：</strong>123456</p>
+                        <p><strong>邮箱：</strong>zhangsan@example.com</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <div class="layout-container">
+            <aside class="side-menu">
+                <ul class="side-menu-list">
+                    <!-- 自行查找 https://www.iconfont.cn/，学习 icon 的引入 -->
+                    <li class="side-menu-item active"><a href="#">课程分类</a></li>
+                    <li class="side-menu-item"><a href="#">学习路径</a></li>
+                    <li class="side-menu-item"><a href="#">资源导航</a></li>
+                    <li class="side-menu-item"><a href="#">实用工具</a></li>
+                </ul>
+            </aside>
+        </div>
+
+        <main class="main-content">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-item">
+                            <h2>HTML 基础</h2>
+                            <p>了解 HTML 的基本语法和结构。</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>CSS 入门</h2>
+                            <p>学习如何使用 CSS 样式化网页。</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h2>JavaScript 基础</h2>
+                            <p>掌握基本的 JavaScript 编程技能。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="module-items">
+                <div class="module-item">
+                    <div class="module-info">
+                        <h3 class="module-title">HTML 基础</h3>
+                        <p class="module-description">了解 HTML 的基本语法和结构。</p>
+                        <button class="module-btn">开始学习</button>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <div class="module-info">
+                        <h3 class="module-title">CSS 入门</h3>
+                        <p class="module-description">学习如何使用 CSS 样式化网页。</p>
+                        <button class="module-btn">开始学习</button>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <div class="module-info">
+                        <h3 class="module-title">JavaScript 基础</h3>
+                        <p class="module-description">掌握基本的 JavaScript 编程技能。</p>
+                        <button class="module-btn">开始学习</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>版权所有 &copy; 2024 我的学习</p>
+    </footer>
+</body>
+
+</html>

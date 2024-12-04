@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务清单</title>
+    <link rel="stylesheet" href="http://172.31.233.204/resource/css/exp9/9-2.css">
+</head>
+
+<body>
+    <h1>任务清单</h1>
+    <input type="text" id="task-input" placeholder="输入新任务">
+    <button id="add-task">添加任务</button>
+    <ul id="task-list"></ul>
+
+    <script>
+        var taskInput = document.getElementById('task-input');
+        var addTaskButton = document.getElementById('add-task');
+        var taskList = document.getElementById('task-list');
+
+        addTaskButton.addEventListener('click', function () {
+            var taskContent = taskInput.value.trim();
+            if (taskContent === '') {
+                alert('任务内容不能为空');
+            } else {
+                var li = document.createElement('li');
+
+                var span = document.createElement('span');
+                span.textContent = taskContent;
+
+                var deleteButton = document.createElement('button');
+                deleteButton.textContent = '删除';
+
+                li.appendChild(span);
+                li.appendChild(deleteButton);
+                taskList.appendChild(li);
+
+                taskInput.value = '';
+
+                console.log('添加任务: ' + taskContent);
+
+                span.addEventListener('click', function () {
+                    if (span.style.textDecoration === 'line-through') {
+                        span.style.textDecoration = '';
+                    } else {
+                        span.style.textDecoration = 'line-through';
+                    }
+                });
+
+                deleteButton.addEventListener('click', function () {
+                    taskList.removeChild(li);
+                    console.log('删除任务: ' + taskContent);
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>

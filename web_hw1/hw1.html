@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+        .profile img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .courses, .assignments, .notifications {
+            margin-top: 30px;
+        }
+        .course-list, .assignment-list, .notification-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-item, .assignment-item, .notification-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+        }
+        .progress {
+            height: 10px;
+            background-color: #4caf50;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 个人信息部分 -->
+        <div class="profile">
+            <img src="http://172.31.233.204/resource/img/exp1/zhangsan.jpg" alt="用户头像">
+            <div>
+                <h2>张三</h2>
+                <p>Email: zhangsan@example.com</p>
+            </div>
+        </div>
+
+        <!-- 已注册课程部分 -->
+        <div class="courses">
+            <h3>已注册课程</h3>
+            <ul class="course-list">
+                <li class="course-item">
+                    <p>课程名称：Python 编程基础</p>
+                    <p>进度：75%</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                </li>
+                <li class="course-item">
+                    <p>课程名称：前端开发</p>
+                    <p>进度：50%</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 作业与成绩部分 -->
+        <div class="assignments">
+            <h3>作业与成绩</h3>
+            <ul class="assignment-list">
+                <li class="assignment-item">
+                    <p>作业名称：Python 变量与数据类型</p>
+                    <p>成绩：90</p>
+                </li>
+                <li class="assignment-item">
+                    <p>作业名称：HTML与CSS页面设计</p>
+                    <p>成绩：85</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 通知与消息部分 -->
+        <div class="notifications">
+            <h3>通知与消息</h3>
+            <ul class="notification-list">
+                <li class="notification-item">
+                    <p>您的前端开发课程下周有考试，请做好准备。</p>
+                </li>
+                <li class="notification-item">
+                    <p>新的Python课程材料已上传，请尽快查阅。</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

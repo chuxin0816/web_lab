@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阅读器</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #toolbar {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+    }
+
+    .toolbar-button {
+      background-color: #555;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    #reader {
+      margin: 60px auto;
+      border: 2px solid #ccc;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      position: relative;
+      height: 2000px;
+    }
+
+    #reader h2 {
+      line-height: 2;
+    }
+
+    .text-content {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 20px;
+      color: #333;
+      text-indent: 2em;
+      text-decoration: none;
+    }
+
+    #note-container {
+      width: 300px;
+      height: 200px;
+      background-color: #ffffff;
+      border: 2px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      position: fixed;
+      top: 65%;
+      right: 3%;
+    }
+
+    #note-container h3 {
+      margin-bottom: 10px;
+    }
+
+    #note-container p {
+      margin: 10px 0;
+      text-align: left;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="toolbar">
+    <button class="toolbar-button">放大</button>
+    <button class="toolbar-button">缩小</button>
+    <button class="toolbar-button">切换主题</button>
+  </div>
+  <div id="reader">
+    <h2>阅读器标题</h2>
+    <p class="text-content">这是第一段文本内容，用于展示阅读区域的格式和排版效果。</p>
+    <p class="text-content">这是第二段文本内容，模拟用户在阅读器中看到的实际文本。</p>
+    <p class="text-content">这是第三段文本内容，包含更多的信息和内容以展示不同的文本样式和排版效果。</p>
+  </div>
+  <div id="note-container">
+    <h3>笔记</h3>
+    <p>这是一个示例笔记内容，可以帮助用户记录阅读时的想法和重要信息。</p>
+  </div>
+</body>
+
+</html>

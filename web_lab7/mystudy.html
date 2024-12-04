@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的学习</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* 顶部导航栏样式 */
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            background-color: #2196f3;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #ffffff;
+            float: left;
+            margin-left: 20px;
+        }
+
+        .fruit-nav {
+            float: right;
+            margin-right: 20px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-item a:hover {
+            background-color: #1976d2;
+        }
+
+        /* 主容器布局与样式 */
+        .main-container {
+            display: flex;
+            margin-top: 80px;
+        }
+
+        .side-menu {
+            width: 200px;
+            height: calc(100vh - 80px - 60px);
+            padding: 10px;
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 80px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* 侧边栏样式 */
+        .side-menu-list {
+            list-style: none;
+        }
+
+        .side-menu-item a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .side-menu-item a:hover,
+        .side-menu-item.active a {
+            background-color: #c6bbbb;
+        }
+
+        /* 模块卡片样式 */
+        .module-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .module-item {
+            min-width: 200px;
+            flex: 1 1 calc(30% - 10px);
+            background-color: #fff;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .module-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .module-title {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .module-description {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .module-btn {
+            display: block;
+            width: 100%;
+            background-color: #2196f3;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .module-btn:hover {
+            background-color: #1976d2;
+        }
+
+        /* 工具栏样式 */
+        .toolkit {
+            position: fixed;
+            right: 0;
+            bottom: 50%;
+            transform: translateY(50%);
+        }
+
+        .toolkit-list {
+            padding: 12px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .toolkit-item a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .toolkit-item img {
+            width: 40px;
+        }
+
+        /* 页脚样式 */
+        .site-footer {
+            background-color: #2196f3;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px 0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .side-menu {
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .module-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="site-header">
+        <div class="logo">我的学习</div>
+        <nav class="fruit-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#">主页</a></li>
+                <li class="nav-item"><a href="#">课程</a></li>
+                <li class="nav-item"><a href="#">笔记</a></li>
+                <li class="nav-item"><a href="#">工具</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主容器 -->
+    <div class="main-container">
+        <!-- 侧边菜单 -->
+        <aside class="side-menu">
+            <ul class="side-menu-list">
+                <li class="side-menu-item active"><a href="#">模块一</a></li>
+                <li class="side-menu-item"><a href="#">模块二</a></li>
+                <li class="side-menu-item"><a href="#">模块三</a></li>
+                <li class="side-menu-item"><a href="#">模块四</a></li>
+            </ul>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <section class="module-items">
+                <div class="module-item">
+                    <div class="module-info">
+                        <h3 class="module-title">HTML 基础</h3>
+                        <p class="module-description">了解 HTML 的基本语法和结构。</p>
+                        <button class="module-btn">开始学习</button>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <div class="module-info">
+                        <h3 class="module-title">CSS 基础</h3>
+                        <p class="module-description">掌握 CSS 样式与布局技巧。</p>
+                        <button class="module-btn">开始学习</button>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <div class="module-info">
+                        <h3 class="module-title">JavaScript 入门</h3>
+                        <p class="module-description">学习 JavaScript 基本语法和编程思想。</p>
+                        <button class="module-btn">开始学习</button>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <div class="module-info">
+                        <h3 class="module-title">前端框架简介</h3>
+                        <p class="module-description">了解主流前端框架及其特点。</p>
+                        <button class="module-btn">开始学习</button>
+                    </div>
+                </div>
+                <!-- 你可以增多一些卡片项 .module-item  -->
+            </section>
+        </main>
+
+        <!-- 工具栏 -->
+        <div class="toolkit">
+            <ul class="toolkit-list">
+                <li class="toolkit-item">
+                    <a href="#"><img src="http://172.31.233.204/resource/img/toolkit-chat.png" alt="工具1" /></a>
+                </li>
+                <li class="toolkit-item">
+                    <a href="#"><img src="http://172.31.233.204/resource/img/toolkit-write.png" alt="工具2" /></a>
+                </li>
+                <li class="toolkit-item">
+                    <a href="#"><img src="http://172.31.233.204/resource/img/toolkit-back.png" alt="工具3" /></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <p>版权所有 &copy; 2024 我的学习</p>
+    </footer>
+</body>
+
+</html>
