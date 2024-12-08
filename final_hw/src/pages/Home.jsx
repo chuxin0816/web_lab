@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import CourseCarousel from '../components/CourseCarousel';
-import CourseList from '../components/CourseList';
-import CategoryList from '../components/CategoryList';
+import CourseCarousel from '../components/CourseCarousel.jsx';
+import CourseList from '../components/CourseList.jsx';
+import CategoryList from '../components/CategoryList.jsx';
 
 function Home() {
   const [recommendedCourses, setRecommendedCourses] = useState([]);
@@ -9,8 +9,45 @@ function Home() {
   const [newCourses, setNewCourses] = useState([]);
 
   useEffect(() => {
-    // 从API获取课程数据
-    fetchCourses();
+    // 模拟数据
+    setRecommendedCourses([
+      {
+        id: '1',
+        title: '示例推荐课程1',
+        description: '这是一个示例推荐课程',
+        coverImage: 'https://via.placeholder.com/300x200',
+        teacherName: '张老师',
+        enrollCount: 100,
+        likeCount: 50
+      },
+      // ... 更多示例课程
+    ]);
+
+    setHotCourses([
+      {
+        id: '2',
+        title: '示例热门课程1',
+        description: '这是一个示例热门课程',
+        coverImage: 'https://via.placeholder.com/300x200',
+        teacherName: '李老师',
+        enrollCount: 200,
+        likeCount: 80
+      },
+      // ... 更多示例课程
+    ]);
+
+    setNewCourses([
+      {
+        id: '3',
+        title: '示例最新课程1',
+        description: '这是一个示例最新课程',
+        coverImage: 'https://via.placeholder.com/300x200',
+        teacherName: '王老师',
+        enrollCount: 50,
+        likeCount: 20
+      },
+      // ... 更多示例课程
+    ]);
   }, []);
 
   return (

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
-import SearchBar from './SearchBar';
+import { useAuth } from '../hooks/useAuth.jsx';
+import SearchBar from './SearchBar.jsx';
 
 function Header() {
   const { user, logout } = useAuth();
@@ -9,8 +9,7 @@ function Header() {
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img src="/logo.svg" alt="Logo" className="h-8 w-auto" />
-          <span className="ml-2 text-xl font-bold">在线课程平台</span>
+          <span className="text-xl font-bold">在线课程平台</span>
         </Link>
 
         <SearchBar />
@@ -21,7 +20,6 @@ function Header() {
               <Link to="/dashboard" className="hover:text-blue-600">
                 {user.role === 'STUDENT' && '我的学习'}
                 {user.role === 'TEACHER' && '课程管理'}
-                {user.role === 'ADMIN' && '系统管理'}
               </Link>
               <button 
                 onClick={logout}

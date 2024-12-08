@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function CourseList({ courses }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {courses.map((course) => (
+      {courses.map(course => (
         <Link 
           key={course.id}
           to={`/course/${course.id}`}
@@ -16,11 +16,6 @@ function CourseList({ courses }) {
                 alt={course.title}
                 className="w-full h-full object-cover"
               />
-              {course.isRecommended && (
-                <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 text-sm rounded">
-                  推荐
-                </span>
-              )}
             </div>
             <div className="p-4">
               <h3 className="text-lg font-semibold line-clamp-2 group-hover:text-blue-600">

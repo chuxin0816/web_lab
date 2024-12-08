@@ -1,18 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import CourseDetail from './pages/CourseDetail';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import StudentDashboard from './pages/student/Dashboard';
-import TeacherDashboard from './pages/teacher/Dashboard';
-import AssignmentSubmission from './pages/student/AssignmentSubmission';
-import CreateAssignment from './pages/teacher/CreateAssignment';
-import OnlineExam from './pages/student/OnlineExam';
-import { UserRole } from './types/user';
-import PrivateRoute from './components/PrivateRoute';
+import Layout from './components/Layout.jsx';
+import Home from './pages/Home.jsx';
+import CourseDetail from './pages/CourseDetail.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import StudentDashboard from './pages/student/Dashboard.jsx';
+import TeacherDashboard from './pages/teacher/Dashboard.jsx';
+import AssignmentSubmission from './pages/student/AssignmentSubmission.jsx';
+import CreateAssignment from './pages/teacher/CreateAssignment.jsx';
+import OnlineExam from './pages/student/OnlineExam.jsx';
+import { UserRole } from './types/user.ts';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 function App() {
+  console.log('App rendering');
   return (
     <Router>
       <Routes>

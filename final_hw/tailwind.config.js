@@ -1,11 +1,14 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/forms'),
+    // 暂时注释掉 forms 插件，因为它可能导致问题
+    // forms
   ],
 } 
